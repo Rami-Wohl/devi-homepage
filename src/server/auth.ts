@@ -47,46 +47,6 @@ export const authOptions: NextAuthOptions = {
     maxAge: 15 * 24 * 30 * 60, // 15 days
   },
   adapter: PrismaAdapter(db) as Adapter,
-  // providers: [
-  //   CredentialsProvider({
-  //     // The name to display on the sign in form (e.g. "Sign in with...")
-  //     name: "Credentials",
-  //     // `credentials` is used to generate a form on the sign in page.
-  //     // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-  //     // e.g. domain, username, password, 2FA token, etc.
-  //     // You can pass any HTML attribute to the <input> tag through the object.
-  //     credentials: {
-  //       email: { label: "Email", type: "text" },
-  //       password: { label: "Password", type: "password" },
-  //     },
-  //     async authorize(credentials) {
-  //       const creds = await loginSchema.parseAsync(credentials);
-
-  //       const user = await db.user.findFirst({
-  //         where: { email: creds.email },
-  //       });
-
-  //       if (!user) {
-  //         return null;
-  //       }
-
-  //       const isValidPassword = await verify(
-  //         String(user.password),
-  //         creds.password,
-  //       );
-
-  //       if (!isValidPassword) {
-  //         return null;
-  //       }
-
-  //       return {
-  //         id: user.id,
-  //         email: user.email,
-  //         name: user.name,
-  //       };
-  //     },
-  //   }),
-  // ],
   providers: [
     CredentialsProvider({
       name: "Credentials",

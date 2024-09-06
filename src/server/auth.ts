@@ -5,10 +5,15 @@ import {
   type NextAuthOptions,
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
-import DiscordProvider from "next-auth/providers/discord";
-
-import { env } from "~/env";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { verify } from "argon2";
 import { db } from "~/server/db";
+import * as z from "zod";
+
+export const loginSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(4).max(16),
+});
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -37,31 +42,104 @@ declare module "next-auth" {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
-  callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+  jwt: {
+    secret: process.env.NEXTAUTH_SECRET,
+    maxAge: 15 * 24 * 30 * 60, // 15 days
   },
   adapter: PrismaAdapter(db) as Adapter,
+  // providers: [
+  //   CredentialsProvider({
+  //     // The name to display on the sign in form (e.g. "Sign in with...")
+  //     name: "Credentials",
+  //     // `credentials` is used to generate a form on the sign in page.
+  //     // You can specify which fields should be submitted, by adding keys to the `credentials` object.
+  //     // e.g. domain, username, password, 2FA token, etc.
+  //     // You can pass any HTML attribute to the <input> tag through the object.
+  //     credentials: {
+  //       email: { label: "Email", type: "text" },
+  //       password: { label: "Password", type: "password" },
+  //     },
+  //     async authorize(credentials) {
+  //       const creds = await loginSchema.parseAsync(credentials);
+
+  //       const user = await db.user.findFirst({
+  //         where: { email: creds.email },
+  //       });
+
+  //       if (!user) {
+  //         return null;
+  //       }
+
+  //       const isValidPassword = await verify(
+  //         String(user.password),
+  //         creds.password,
+  //       );
+
+  //       if (!isValidPassword) {
+  //         return null;
+  //       }
+
+  //       return {
+  //         id: user.id,
+  //         email: user.email,
+  //         name: user.name,
+  //       };
+  //     },
+  //   }),
+  // ],
   providers: [
-    DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials) {
+        // Find the user with the given email
+        const creds = await loginSchema.parseAsync(credentials);
+
+        const user = await db.user.findFirst({
+          where: { email: creds.email },
+        });
+
+        if (!user) {
+          throw new Error("No user found with this email");
+        }
+
+        // Check if the password is correct
+        const isValidPassword = await verify(
+          String(user.password),
+          creds.password,
+        );
+
+        if (!isValidPassword) {
+          throw new Error("Incorrect password");
+        }
+
+        // Return user object to be stored in the session
+        return { id: user.id, email: user.email, name: user.name };
+      },
     }),
-    /**
-     * ...add more providers here.
-     *
-     * Most other providers require a bit more work than the Discord provider. For example, the
-     * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
-     * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
-     *
-     * @see https://next-auth.js.org/providers/github
-     */
   ],
+  callbacks: {
+    async session({ session, token }) {
+      session.user.id = String(token.id); // Add the user ID to the session
+      return session;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id; // Add the user ID to the token
+      }
+      return token;
+    },
+  },
+  pages: {
+    // signIn: "/auth/signin", // Optional: Customize the login page path
+  },
+  session: {
+    strategy: "jwt",
+    maxAge: 15 * 24 * 30 * 60, // 15 days
+  },
 };
 
 /**

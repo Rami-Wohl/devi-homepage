@@ -13,6 +13,7 @@ export function withAuth(Component: ComponentType<PageParams>) {
 
     if (!session) {
       redirect("/login");
+      return null;
     }
 
     return <Component {...props} />;

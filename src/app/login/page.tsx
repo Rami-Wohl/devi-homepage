@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
-import { LoginForm } from "~/_components/form/login-form";
+import { LoginForm } from "~/components/form/login-form";
 
 export default function Login() {
   return (

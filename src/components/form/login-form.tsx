@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "~/_components/ui/button";
+import { Button } from "~/components/ui/button";
 import {
   Form,
   FormControl,
@@ -12,8 +12,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "~/_components/ui/form";
-import { Input } from "~/_components/ui/input";
+} from "~/components/ui/form";
+import { Input } from "~/components/ui/input";
 import { signIn } from "next-auth/react";
 
 const FormSchema = z.object({
@@ -44,6 +44,7 @@ export function LoginForm() {
       });
       if (!res?.error) {
         router.push(callbackUrl);
+        router.refresh();
       } else {
         form.setError("root.validation", {
           type: "custom",

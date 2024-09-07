@@ -13,6 +13,18 @@ async function main() {
     },
     update: {},
   });
+
+  await db.user.upsert({
+    where: {
+      email: "devi.hisgen@gmail.com",
+    },
+    create: {
+      email: "devi.hisgen@gmail.com",
+      name: "Devi",
+      password: await hash("h0tsefl0ts"),
+    },
+    update: {},
+  });
 }
 
 main()

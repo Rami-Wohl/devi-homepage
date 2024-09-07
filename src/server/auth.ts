@@ -66,7 +66,6 @@ export const authOptions: NextAuthOptions = {
           throw new Error("No user found with this email");
         }
 
-        // Check if the password is correct
         const isValidPassword = await verify(
           String(user.password),
           creds.password,
@@ -76,19 +75,18 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Incorrect password");
         }
 
-        // Return user object to be stored in the session
         return { id: user.id, email: user.email, name: user.name };
       },
     }),
   ],
   callbacks: {
     async session({ session, token }) {
-      session.user.id = String(token.id); // Add the user ID to the session
+      session.user.id = String(token.id);
       return session;
     },
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id; // Add the user ID to the token
+        token.id = user.id;
       }
       return token;
     },

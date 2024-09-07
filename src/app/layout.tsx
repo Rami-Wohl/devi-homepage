@@ -23,7 +23,9 @@ export default async function RootLayout({
       <body>
         <TRPCReactProvider>
           <NavComponents loggedIn={!!session} />
-          {children}
+          <main className="bg-primary text-fontPrimary flex min-h-screen flex-col items-center justify-center bg-opacity-95">
+            {children}
+          </main>
         </TRPCReactProvider>
       </body>
     </html>

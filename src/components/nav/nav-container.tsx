@@ -11,6 +11,11 @@ import LogoutIcon from "../icons/logout-icon";
 
 const routes = {
   main: "/",
+  about: "/about",
+  prices: "/prices",
+  portfolio: "/portfolio",
+  studio: "/studio",
+  contact: "/contact",
   restricted: "/restricted",
   login: "/login",
 };
@@ -18,7 +23,7 @@ const routes = {
 const NavLink = ({ href, title }: { href: string; title: string }) => {
   return (
     <Link href={href} className="w-full">
-      <div className="w-full cursor-pointer py-4 text-center font-sans text-[1.1rem] tracking-[0.3rem] text-white text-opacity-60 no-underline opacity-90 hover:bg-white hover:bg-opacity-90 hover:text-black hover:text-opacity-100">
+      <div className="text-fontPrimary w-full cursor-pointer py-4 text-center font-sans text-[1.1rem] tracking-[0.3rem] text-opacity-60 no-underline opacity-90 hover:bg-white hover:bg-opacity-90 hover:text-black hover:text-opacity-100">
         {title}
       </div>
     </Link>
@@ -45,17 +50,27 @@ const NavComponents = ({ loggedIn }: { loggedIn: boolean }) => {
       <div>
         <nav
           ref={mobileMenuRef}
-          className={`fixed left-0 top-[55px] z-[2] flex h-[calc(100%-55px)] flex-col items-center border-y border-r border-white border-opacity-10 bg-black text-left ${
+          className={`bg-secondary fixed left-0 top-0 z-[2] flex h-[calc(100%-55px)] flex-col items-center justify-between border-y border-r border-white border-opacity-10 text-left lg:bg-opacity-20 ${
             isMobileMenuVisible ? "translate-x-0" : "-translate-x-full"
-          } h-full w-full transition-transform duration-500 ease-in-out lg:w-1/4`}
+          } h-screen w-full pt-[55px] transition-transform duration-500 ease-in-out lg:w-80`}
         >
-          <NavLink href={routes.main} title="Home" />
-          <NavLink href={routes.login} title="Login" />
+          <span />
+          <div className="w-full">
+            <NavLink href={routes.main} title="Home" />
+            <NavLink href={routes.about} title="About" />
+            <NavLink href={routes.prices} title="Prices" />
+            <NavLink href={routes.portfolio} title="Portfolio" />
+            <NavLink href={routes.studio} title="Studio" />
+            <NavLink href={routes.contact} title="Contact" />
+          </div>
+          <div className="w-full">
+            <NavLink href={routes.login} title="Login" />
+          </div>
         </nav>
         <div
           className={`absolute z-[2] w-full transition-transform duration-500 ease-in-out`}
         >
-          <div className="relative flex h-[55px] flex-wrap items-center justify-center bg-[#0a0a0a] px-4 py-1">
+          <div className="bg-primary relative flex h-[55px] flex-wrap items-center justify-center bg-opacity-30 px-4 py-1">
             <div ref={mobileMenuHandlerRef}>
               <button
                 className="z-10 mr-auto flex h-10 w-10 scale-75 cursor-pointer flex-col justify-around border-none bg-transparent p-0 focus:outline-none"
@@ -66,8 +81,8 @@ const NavComponents = ({ loggedIn }: { loggedIn: boolean }) => {
                 <BurgerMenuIcon stroke={"#b1b1b1"} height={40} width={40} />{" "}
               </button>
             </div>
-            <div className="fixed flex flex-wrap items-center justify-center">
-              <h2 className="flex flex-row gap-6 font-sans text-xl font-thin uppercase text-white">
+            <div className="fixed hidden flex-wrap items-center justify-center md:flex">
+              <h2 className="text-fontSecondary flex flex-row gap-4 font-sans text-base font-bold uppercase">
                 <span className="text">D e v i</span>
                 <span className="text">H i s g e n</span>
                 <span className="text">A u d i o</span>

@@ -1,0 +1,13 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "Over",
+    "prices": "Prijzen",
+    "portfolio": "Portfolio",
+    "studio": "Studio",
+    "contact": "Contact"
+  },
+  "general": {
+    "under-construction": "nog ff geduld, pik"
+  }
+}

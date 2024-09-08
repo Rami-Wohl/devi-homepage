@@ -1,0 +1,13 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "prices": "Prices",
+    "portfolio": "Portfolio",
+    "studio": "Studio",
+    "contact": "Contact"
+  },
+  "general": {
+    "under-construction": "under construction"
+  }
+}

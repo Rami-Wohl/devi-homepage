@@ -1,5 +1,5 @@
 import { type ComponentType } from "react";
-import { redirect } from "next/navigation";
+import { redirect } from "~/i18n/routing";
 import { getServerAuthSession } from "~/server/auth";
 
 interface PageParams {

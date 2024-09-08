@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import Link from "next/link";
 import { signOut } from "next-auth/react";
 import useComponentVisible from "~/hooks/use-component-visible";
 import AccountIcon from "../icons/account-icon";
 import BurgerMenuIcon from "../icons/burgermenu-icon";
 import LogoutIcon from "../icons/logout-icon";
+import { Link, type Locale, usePathname, useRouter } from "~/i18n/routing";
+import { I18nToggle } from "../ui/i18n-toggle";
+import { useTranslations } from "next-intl";
 
 const routes = {
   main: "/",
@@ -30,7 +31,13 @@ const NavLink = ({ href, title }: { href: string; title: string }) => {
   );
 };
 
-const NavComponents = ({ loggedIn }: { loggedIn: boolean }) => {
+const NavComponents = ({
+  loggedIn,
+  locale,
+}: {
+  loggedIn: boolean;
+  locale: Locale;
+}) => {
   const {
     ref: mobileMenuRef,
     handlerRef: mobileMenuHandlerRef,
@@ -40,6 +47,7 @@ const NavComponents = ({ loggedIn }: { loggedIn: boolean }) => {
 
   const router = useRouter();
   const path = usePathname();
+  const t = useTranslations("navigation");
 
   useEffect(() => {
     setMobileMenuVisible(false);
@@ -56,12 +64,12 @@ const NavComponents = ({ loggedIn }: { loggedIn: boolean }) => {
         >
           <span />
           <div className="w-full">
-            <NavLink href={routes.main} title="Home" />
-            <NavLink href={routes.about} title="About" />
-            <NavLink href={routes.prices} title="Prices" />
-            <NavLink href={routes.portfolio} title="Portfolio" />
-            <NavLink href={routes.studio} title="Studio" />
-            <NavLink href={routes.contact} title="Contact" />
+            <NavLink href={routes.main} title={t("home")} />
+            <NavLink href={routes.about} title={t("about")} />
+            <NavLink href={routes.prices} title={t("prices")} />
+            <NavLink href={routes.portfolio} title={t("portfolio")} />
+            <NavLink href={routes.studio} title={t("studio")} />
+            <NavLink href={routes.contact} title={t("contact")} />
           </div>
           <div className="w-full">
             <NavLink href={routes.login} title="Login" />
@@ -89,6 +97,7 @@ const NavComponents = ({ loggedIn }: { loggedIn: boolean }) => {
               </h2>
             </div>
             <div className="ml-auto flex flex-row items-center">
+              <I18nToggle locale={locale} path={path} />
               {loggedIn ? (
                 <>
                   <button

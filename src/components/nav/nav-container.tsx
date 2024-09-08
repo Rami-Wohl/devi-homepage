@@ -60,7 +60,7 @@ const NavComponents = ({
           ref={mobileMenuRef}
           className={`bg-secondary fixed left-0 top-0 z-[2] flex h-[calc(100%-55px)] flex-col items-center justify-between border-y border-r border-white border-opacity-10 text-left lg:bg-opacity-20 ${
             isMobileMenuVisible ? "translate-x-0" : "-translate-x-full"
-          } h-screen w-full pt-[55px] transition-transform duration-500 ease-in-out lg:w-80`}
+          } min-h-full w-full pt-[55px] transition-transform duration-500 ease-in-out lg:w-80`}
         >
           <span />
           <div className="w-full">
@@ -117,7 +117,7 @@ const NavComponents = ({
                     className="flex h-10 w-10 flex-col items-center justify-center rounded-full hover:bg-white hover:bg-opacity-5"
                     onClick={() =>
                       signOut({
-                        callbackUrl: routes.login,
+                        callbackUrl: `/${locale}${path}`,
                       })
                     }
                   >

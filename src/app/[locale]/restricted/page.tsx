@@ -14,7 +14,13 @@ async function RestrictedPage() {
           <p className="text-center text-2xl text-fontPrimary">
             {session && <span>Logged in as {session.user?.name}</span>}
           </p>
-          {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <>Loading...</>}
+          {data ? (
+            <pre className="max-w-full text-wrap">
+              {JSON.stringify(data, null, 2)}
+            </pre>
+          ) : (
+            <>Loading...</>
+          )}
         </div>
       </div>
     </div>

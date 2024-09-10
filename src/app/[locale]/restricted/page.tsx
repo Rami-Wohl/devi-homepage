@@ -10,12 +10,12 @@ async function RestrictedPage() {
   return (
     <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
       <div className="flex flex-col items-center gap-2">
-        <div className="flex flex-col items-center justify-center gap-4">
+        <div className="relative flex flex-col items-center justify-center gap-4">
           <p className="text-center text-2xl text-fontPrimary">
             {session && <span>Logged in as {session.user?.name}</span>}
           </p>
           {data ? (
-            <pre className="max-w-full text-wrap">
+            <pre className="max-w-full flex-wrap whitespace-break-spaces text-wrap lg:w-1/2">
               {JSON.stringify(data, null, 2)}
             </pre>
           ) : (

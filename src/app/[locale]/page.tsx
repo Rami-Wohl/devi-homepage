@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
       <div className="flex flex-col items-center gap-2">
-        <div className="bg-secondary rounded-md bg-opacity-50 p-3 shadow-2xl">
+        <div className="rounded-md bg-secondary bg-opacity-50 p-3 shadow-2xl">
           <Image
-            className="border-primary border-spacing-2 rounded-md border-x-[12px] border-y-[8px]"
+            className="border-spacing-2 rounded-md border-x-[12px] border-y-[8px] border-primary"
             src={image}
             alt="..."
             width={300}

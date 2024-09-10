@@ -1,17 +1,21 @@
 import { useTranslations } from "next-intl";
-import { UnderConstruction } from "~/components/content/under-construction";
+import { Suspense } from "react";
+import { ContactForm } from "~/components/form/contact-form";
+import { HydrateClient } from "~/trpc/server";
 
 export default function ContactPage() {
-  const t = useTranslations("navigation");
+  const t = useTranslations("contact");
 
   return (
-    <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-      <div className="flex flex-col items-center gap-2">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <h1>{t("contact")}</h1>
-          <UnderConstruction />
+    <HydrateClient>
+      <div className="flex h-screen w-screen items-center justify-center">
+        <div className="flex w-4/5 flex-col gap-4 rounded-md bg-secondary bg-opacity-80 p-8 text-fontPrimary sm:shadow-xl md:w-2/3 lg:w-1/3">
+          <h1 className="text-2xl font-semibold">{t("title")}</h1>
+          <Suspense>
+            <ContactForm />
+          </Suspense>
         </div>
       </div>
-    </div>
+    </HydrateClient>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "~/components/ui/button";
@@ -14,58 +13,59 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
-import { signIn } from "next-auth/react";
-import { useRouter } from "~/i18n/routing";
+import { Textarea } from "../ui/textarea";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { api } from "~/trpc/react";
+import Spinner from "../icons/spinner";
 
-const loginFormSchema = z.object({
+const contactFormSchema = z.object({
   email: z.string().email("Must be valid email"),
-  password: z.string(),
+  question: z.string(),
 });
 
-export function LoginForm() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") ?? "/restricted";
-  const t = useTranslations("login");
+export function ContactForm() {
+  const t = useTranslations("contact");
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
-  const form = useForm<z.infer<typeof loginFormSchema>>({
-    resolver: zodResolver(loginFormSchema),
+  const { mutateAsync, isPending } = api.message.createMessage.useMutation();
+
+  const form = useForm<z.infer<typeof contactFormSchema>>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       email: "",
-      password: "",
+      question: "",
     },
   });
 
-  const onSubmit = async ({
+  const handleSubmit = async ({
     email,
-    password,
-  }: z.infer<typeof loginFormSchema>) => {
+    question,
+  }: z.infer<typeof contactFormSchema>) => {
     try {
-      const res = await signIn("credentials", {
-        redirect: false,
+      await mutateAsync({
         email,
-        password,
-        callbackUrl,
+        question,
       });
-      if (!res?.error) {
-        router.push(callbackUrl);
-        router.refresh();
-      } else {
-        form.setError("root.validation", {
-          type: "custom",
-          message: t("form.validationError"),
-        });
-      }
+      setSubmitted(true);
     } catch (err) {
+      form.setError("root.validation", {
+        type: "custom",
+        message: t("form.submitError"),
+      });
+
       console.error(err);
     }
   };
 
+  if (submitted) {
+    return <div>{t("form.thanks")}</div>;
+  }
+
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit(handleSubmit)}
         className="flex w-full flex-col gap-6 bg-transparent"
       >
         <FormField
@@ -75,7 +75,11 @@ export function LoginForm() {
             <FormItem>
               <FormLabel>{t("form.email")}</FormLabel>
               <FormControl>
-                <Input {...field} className="text-black" />
+                <Input
+                  {...field}
+                  className="text-black"
+                  placeholder={t("form.emailPlaceholder")}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -83,17 +87,17 @@ export function LoginForm() {
         />
         <FormField
           control={form.control}
-          name="password"
+          name="question"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t("form.password")}</FormLabel>
+              <FormLabel>{t("form.question")}</FormLabel>
               <FormControl>
-                <Input
-                  type="password"
+                <Textarea
                   required
                   {...field}
                   autoComplete="on"
                   className="text-black"
+                  placeholder={t("form.questionPlaceholder")}
                 />
               </FormControl>
               <FormMessage />
@@ -105,9 +109,15 @@ export function LoginForm() {
             {form.formState.errors.root.validation?.message}
           </FormMessage>
         )}
-        <Button type="submit" className="mt-8">
-          {t("form.submit")}
-        </Button>
+        {isPending ? (
+          <Button className="mt-8" disabled>
+            <Spinner />
+          </Button>
+        ) : (
+          <Button type="submit" className="mt-8">
+            {t("form.submit")}
+          </Button>
+        )}
       </form>
     </Form>
   );

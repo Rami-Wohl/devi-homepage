@@ -9,5 +9,26 @@
   },
   "general": {
     "under-construction": "under construction"
+  },
+  "login": {
+    "title": "Login",
+    "form": {
+      "email": "Email",
+      "password": "Password",
+      "validationError": "Invalid email or password",
+      "submit": "Log in"
+    }
+  },
+  "contact": {
+    "title": "Contact me",
+    "form": {
+      "email": "Email",
+      "question": "Your question",
+      "submitError": "Couldn't send message, please try again later.",
+      "emailPlaceholder": "Your email address",
+      "questionPlaceholder": "Please enter your question or briefly describe your project here...",
+      "submit": "Send",
+      "thanks": "Thanks for your message! I'll contact you as soon as possible."
+    }
   }
 }

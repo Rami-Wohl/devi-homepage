@@ -9,5 +9,26 @@
   },
   "general": {
     "under-construction": "nog ff geduld, pik"
+  },
+  "login": {
+    "title": "Inloggen",
+    "form": {
+      "email": "Email",
+      "password": "Wachtwoord",
+      "validationError": "Verkeerd email adres of wachtwoord",
+      "submit": "Log in"
+    }
+  },
+  "contact": {
+    "title": "Neem contact op",
+    "form": {
+      "email": "Email",
+      "question": "Je vraag",
+      "submitError": "Kon bericht niet versturen, probeer het later nog eens",
+      "emailPlaceholder": "Je email adres",
+      "questionPlaceholder": "Stel hier je vraag of geef een korte beschrijving van je project...",
+      "submit": "Versturen",
+      "thanks": "Bedankt voor je bericht! Ik neem zo spoedig mogelijk contact met je op."
+    }
   }
 }

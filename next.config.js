@@ -9,6 +9,15 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  redirects: async () => [
+    {
+      permanent: true,
+      source: "/:locale/assets/:path*",
+      destination: "/assets/:path*",
+      locale: false, // Prevent locales from affecting static assets
+    },
+  ],
+};
 
 export default withNextIntl(nextConfig);

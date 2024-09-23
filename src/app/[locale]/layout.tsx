@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import "~/styles/customize-progress-bar.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { TRPCReactProvider } from "~/trpc/react";
@@ -27,7 +28,7 @@ export default async function RootLayout({
         <TRPCReactProvider>
           <NextIntlClientProvider messages={messages}>
             <NavComponents loggedIn={!!session} locale={locale} />
-            <main className="bg-primary text-fontPrimary flex min-h-screen flex-col items-center justify-center bg-opacity-95">
+            <main className="flex min-h-screen flex-col items-center justify-center bg-primary bg-opacity-95 text-fontPrimary">
               {children}
             </main>
           </NextIntlClientProvider>

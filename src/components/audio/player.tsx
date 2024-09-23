@@ -15,7 +15,7 @@ export default function AudioPlayer() {
     <div>
       <div className="flex min-h-8 flex-col items-center justify-between gap-9 bg-[#2e2d2d] p-[0.5rem_10px] text-white lg:flex-row">
         <TrackInfo />
-        <div className="m-auto flex w-full flex-1 flex-col items-center gap-2">
+        <div className="m-auto flex w-full flex-1 flex-col items-center gap-1">
           <Controls tracks={tracks} />
           <ProgressBar />
         </div>

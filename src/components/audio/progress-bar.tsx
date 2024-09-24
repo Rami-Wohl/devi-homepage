@@ -20,7 +20,9 @@ export const ProgressBar = () => {
 
   return (
     <div className="flex w-full items-center justify-center gap-5">
-      <span>{formatTime(timeProgress)}</span>
+      <span className="min-w-12 text-center font-mono">
+        {formatTime(timeProgress)}
+      </span>
       <input
         className="max-w-[80%] bg-gray-300"
         ref={progressBarRef}
@@ -28,7 +30,9 @@ export const ProgressBar = () => {
         defaultValue="0"
         onChange={handleProgressChange}
       />
-      <span>{formatTime(duration)}</span>
+      <span className="min-w-12 text-center font-mono">
+        {formatTime(duration)}
+      </span>
     </div>
   );
 };

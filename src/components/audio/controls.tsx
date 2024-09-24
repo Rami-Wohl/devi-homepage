@@ -12,7 +12,31 @@ import NextTrackIcon from "../icons/next-track-icon";
 import ShuffleTracksIcon from "../icons/shuffle-tracks-icon";
 import RepeatTrackIcon from "../icons/repeat-track-icon";
 
-export const Controls = ({ tracks }: { tracks: Track[] }) => {
+const Button = ({
+  children,
+  size,
+}: {
+  children: JSX.Element;
+  size: "small" | "large";
+}) => {
+  return (
+    <div
+      className={`flex ${size === "large" ? "h-10 w-10" : "h-8 w-8"} items-center justify-center rounded-full bg-white bg-opacity-10 hover:bg-opacity-50`}
+    >
+      {children}
+    </div>
+  );
+};
+
+export const Controls = ({
+  tracks,
+  showShuffleToggle,
+  showRepeatToggle,
+}: {
+  tracks: Track[];
+  showShuffleToggle: boolean;
+  showRepeatToggle: boolean;
+}) => {
   const {
     currentTrack,
     audioRef,
@@ -25,6 +49,7 @@ export const Controls = ({ tracks }: { tracks: Track[] }) => {
     isPlaying,
     setIsPlaying,
   } = useAudioPlayerContext();
+
   const [isShuffle, setIsShuffle] = useState<boolean>(false);
   const [isRepeat, setIsRepeat] = useState<boolean>(false);
 
@@ -125,9 +150,19 @@ export const Controls = ({ tracks }: { tracks: Track[] }) => {
           ? 0
           : prev + 1;
       setCurrentTrack(tracks[newIndex]);
+      if (!isRepeat && !isShuffle && newIndex === 0) {
+        setIsPlaying(false);
+      }
       return newIndex;
     });
-  }, [isShuffle, setCurrentTrack, setTrackIndex, tracks]);
+  }, [
+    isShuffle,
+    setCurrentTrack,
+    setTrackIndex,
+    tracks,
+    setIsPlaying,
+    isRepeat,
+  ]);
 
   useEffect(() => {
     const currentAudioRef = audioRef.current;
@@ -148,33 +183,47 @@ export const Controls = ({ tracks }: { tracks: Track[] }) => {
   }, [isRepeat, handleNext, audioRef]);
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="relative flex w-full items-center justify-center px-4">
       <audio
         src={currentTrack.src}
         ref={audioRef}
         onLoadedMetadata={onLoadedMetadata}
       />
-      <button onClick={handlePrevious}>
-        <PreviousTrackIcon />
-      </button>
-      <button onClick={skipBackward}>
-        <RewindTrackIcon />
-      </button>
-      <button onClick={() => setIsPlaying((prev) => !prev)}>
-        {isPlaying ? <PauseTrackIcon /> : <PlayTrackIcon />}
-      </button>
-      <button onClick={skipForward}>
-        <FastForwardTrackIcon />
-      </button>
-      <button onClick={handleNext}>
-        <NextTrackIcon />
-      </button>
-      <button onClick={() => setIsShuffle((prev) => !prev)}>
-        <ShuffleTracksIcon className={isShuffle ? "text-[#f50]" : ""} />
-      </button>
-      <button onClick={() => setIsRepeat((prev) => !prev)}>
-        <RepeatTrackIcon className={isRepeat ? "text-[#f50]" : ""} />
-      </button>
+      <div className="flex justify-center gap-6">
+        <button onClick={handlePrevious}>
+          <PreviousTrackIcon />
+        </button>
+        <button onClick={skipBackward}>
+          <RewindTrackIcon />
+        </button>
+        <button onClick={() => setIsPlaying((prev) => !prev)}>
+          {isPlaying ? (
+            <Button size="large">
+              <PauseTrackIcon height={24} width={24} />
+            </Button>
+          ) : (
+            <Button size="large">
+              <PlayTrackIcon className="pl-[2px]" height={24} width={24} />
+            </Button>
+          )}
+        </button>
+        <button onClick={skipForward}>
+          <FastForwardTrackIcon />
+        </button>
+        <button onClick={handleNext}>
+          <NextTrackIcon />
+        </button>
+      </div>
+      {showShuffleToggle && (
+        <button onClick={() => setIsShuffle((prev) => !prev)}>
+          <ShuffleTracksIcon className={isShuffle ? "text-[#f50]" : ""} />
+        </button>
+      )}
+      {showRepeatToggle && (
+        <button onClick={() => setIsRepeat((prev) => !prev)}>
+          <RepeatTrackIcon className={isRepeat ? "text-[#f50]" : ""} />
+        </button>
+      )}
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import { useAudioPlayerContext } from "../../context/audio-player-context";
 import MusicNoteIcon from "../icons/music-note-icon";
+
 export const TrackInfo = () => {
   const { currentTrack } = useAudioPlayerContext();
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 py-6">
       <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-md bg-gray-200">
         {currentTrack.thumbnail ? (
           // eslint-disable-next-line @next/next/no-img-element

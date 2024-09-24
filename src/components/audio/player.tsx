@@ -7,23 +7,41 @@ import { PlayList } from "./playlist";
 import AddListIcon from "../icons/add-list-icon";
 import { useAudioPlayerContext } from "~/context/audio-player-context";
 
-export default function AudioPlayer() {
+interface AudioPlayerConfig {
+  showPlaylistToggle: boolean;
+  showShuffleToggle: boolean;
+  showRepeatToggle: boolean;
+}
+
+export default function AudioPlayer({
+  showPlaylistToggle,
+  showShuffleToggle,
+  showRepeatToggle,
+}: AudioPlayerConfig) {
   const { tracks } = useAudioPlayerContext();
 
-  const [openDrawer, setOpenDrawer] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(true);
   return (
     <div>
-      <div className="flex min-h-8 flex-col items-center justify-between gap-9 bg-[#2e2d2d] p-[0.5rem_10px] text-white lg:flex-row">
+      <div className="flex min-h-8 w-[400px] flex-col items-center justify-between rounded-t-md bg-secondary bg-opacity-80 text-white">
         <TrackInfo />
-        <div className="m-auto flex w-full flex-1 flex-col items-center gap-1">
-          <Controls tracks={tracks} />
+        <div className="m-auto flex w-full flex-1 flex-col items-center gap-6 border-t border-white border-opacity-40 p-4">
+          <Controls
+            tracks={tracks}
+            showShuffleToggle={showShuffleToggle}
+            showRepeatToggle={showRepeatToggle}
+          />
           <ProgressBar />
-        </div>
-        <div className="flex items-center gap-2 text-gray-400">
-          <VolumeControl />
-          <button onClick={() => setOpenDrawer((prev) => !prev)}>
-            <AddListIcon />
-          </button>
+          <div className="flex items-center justify-center text-gray-400">
+            <div className="hidden lg:block">
+              <VolumeControl />
+            </div>
+            {showPlaylistToggle && (
+              <button onClick={() => setOpenDrawer((prev) => !prev)}>
+                <AddListIcon />
+              </button>
+            )}
+          </div>
         </div>
       </div>
       <div
@@ -31,7 +49,7 @@ export default function AudioPlayer() {
           openDrawer ? "max-h-72" : "max-h-0"
         }`}
       >
-        <div className="max-h-72 overflow-y-auto bg-[#4c4848] text-white">
+        <div className="max-h-72 overflow-y-auto border-t border-white border-opacity-40 text-white">
           <PlayList />
         </div>
       </div>

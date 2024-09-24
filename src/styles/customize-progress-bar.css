@@ -6,8 +6,8 @@ input[type="range"] {
   position: relative;
   background: #ccc;
   width: 100%;
-  height: 2px;
-  border-radius: 2px;
+  height: 8px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -16,19 +16,19 @@ input[type="range"]::-moz-range-track {
   position: relative;
   background: #ccc;
   width: 100%;
-  height: 2px;
-  border-radius: 2px;
+  height: 8px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 /* played progress length - Chrome & safari*/
 input[type="range"]::before {
   content: "";
-  height: 2px;
-  background: #f50;
+  height: 8px;
+  background: #f10;
   width: var(--range-progress);
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
   position: absolute;
   top: 0;
   left: 0;
@@ -36,9 +36,9 @@ input[type="range"]::before {
 
 /* played progress length - firefox */
 input[type="range"]::-moz-range-progress {
-  background: #f50;
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
+  background: #f10;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
   height: 2px;
 }
 
@@ -54,13 +54,13 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .volumn::-webkit-slider-thumb {
-  background-color: #f50;
+  background-color: #ffffff;
 }
 
 /* dragging thumb - chrome and safari */
 input[type="range"]:active::-webkit-slider-thumb {
   transform: scale(1.2);
-  background-color: #f50;
+  background-color: #ffffff;
 }
 
 /* slider thumb - firefox */
@@ -68,7 +68,7 @@ input[type="range"]::-moz-range-thumb {
   height: 8px;
   width: 8px;
   border-radius: 50%;
-  background: #f50;
+  background: #ffffff;
   cursor: pointer;
   border: transparent;
   position: relative;
@@ -76,5 +76,5 @@ input[type="range"]::-moz-range-thumb {
 /* dragging thumb - firefox */
 input[type="range"]:active::-moz-range-thumb {
   transform: scale(1.2);
-  background-color: #f50;
+  background-color: #ffffff;
 }

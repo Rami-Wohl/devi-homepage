@@ -24,11 +24,11 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`${GeistSans.variable}`}>
-      <body>
+      <body id="app">
         <TRPCReactProvider>
           <NextIntlClientProvider messages={messages}>
             <NavComponents loggedIn={!!session} locale={locale} />
-            <main className="flex min-h-screen flex-col items-center justify-center bg-primary bg-opacity-95 text-fontPrimary">
+            <main className="flex min-h-screen flex-col items-center justify-center bg-primary bg-opacity-70 text-fontPrimary">
               {children}
             </main>
           </NextIntlClientProvider>

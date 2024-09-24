@@ -14,7 +14,7 @@ export const PlayList = () => {
   };
 
   return (
-    <ul className="max-h-72 overflow-y-auto bg-[#4c4848] text-white">
+    <ul className="max-h-72 overflow-y-auto rounded-b-md bg-secondary bg-opacity-80 text-white">
       {tracks.map((track, index) => (
         <li
           key={index}
@@ -29,7 +29,7 @@ export const PlayList = () => {
           }}
           onClick={() => handleClick(track)}
         >
-          <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-sm bg-gray-200">
+          <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-sm">
             {track.thumbnail ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -38,7 +38,7 @@ export const PlayList = () => {
                 alt="audio avatar"
               />
             ) : (
-              <div className="flex h-full w-full items-center justify-center rounded-md bg-gray-300">
+              <div className="flex h-full w-full items-center justify-center rounded-md">
                 <span className="text-xl text-gray-600">
                   <MusicNotesIcon />
                 </span>

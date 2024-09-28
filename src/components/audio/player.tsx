@@ -22,8 +22,8 @@ export default function AudioPlayer({
 
   const [openDrawer, setOpenDrawer] = useState(true);
   return (
-    <div>
-      <div className="flex min-h-8 w-[400px] flex-col items-center justify-between rounded-t-md bg-secondary bg-opacity-80 text-white">
+    <div className="w-full">
+      <div className="flex min-h-8 w-full flex-col items-center justify-between rounded-t-md bg-secondary bg-opacity-80 text-white">
         <TrackInfo />
         <div className="m-auto flex w-full flex-1 flex-col items-center gap-6 border-t border-white border-opacity-40 p-4">
           <Controls

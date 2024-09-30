@@ -21,11 +21,27 @@ const routes = {
   login: "/login",
 };
 
-const NavLink = ({ href, title }: { href: string; title: string }) => {
+const NavLink = ({
+  href,
+  title,
+  path,
+  closeMenu,
+}: {
+  href: string;
+  title: string;
+  path: string;
+  closeMenu: () => void;
+}) => {
+  function handleClick() {
+    if (href === path) {
+      closeMenu();
+    }
+  }
+
   return (
     <Link href={href} className="w-full">
       <div className="w-full cursor-pointer py-4 text-center font-sans text-[1.1rem] tracking-[0.3rem] text-fontPrimary text-opacity-60 no-underline opacity-90 hover:bg-white hover:bg-opacity-90 hover:text-black hover:text-opacity-100">
-        {title}
+        <button onClick={handleClick}>{title}</button>
       </div>
     </Link>
   );
@@ -64,15 +80,50 @@ const NavComponents = ({
         >
           <span />
           <div className="w-full">
-            <NavLink href={routes.main} title={t("home")} />
-            <NavLink href={routes.about} title={t("about")} />
-            <NavLink href={routes.prices} title={t("prices")} />
-            <NavLink href={routes.portfolio} title={t("portfolio")} />
-            <NavLink href={routes.studio} title={t("studio")} />
-            <NavLink href={routes.contact} title={t("contact")} />
+            <NavLink
+              href={routes.main}
+              title={t("home")}
+              path={path}
+              closeMenu={() => setMobileMenuVisible(false)}
+            />
+            <NavLink
+              href={routes.about}
+              title={t("about")}
+              path={path}
+              closeMenu={() => setMobileMenuVisible(false)}
+            />
+            <NavLink
+              href={routes.prices}
+              title={t("prices")}
+              path={path}
+              closeMenu={() => setMobileMenuVisible(false)}
+            />
+            <NavLink
+              href={routes.portfolio}
+              title={t("portfolio")}
+              path={path}
+              closeMenu={() => setMobileMenuVisible(false)}
+            />
+            <NavLink
+              href={routes.studio}
+              title={t("studio")}
+              path={path}
+              closeMenu={() => setMobileMenuVisible(false)}
+            />
+            <NavLink
+              href={routes.contact}
+              title={t("contact")}
+              path={path}
+              closeMenu={() => setMobileMenuVisible(false)}
+            />
           </div>
           <div className="w-full">
-            <NavLink href={routes.login} title="Login" />
+            <NavLink
+              href={routes.login}
+              title="Login"
+              path={path}
+              closeMenu={() => setMobileMenuVisible(false)}
+            />
           </div>
         </nav>
         <div

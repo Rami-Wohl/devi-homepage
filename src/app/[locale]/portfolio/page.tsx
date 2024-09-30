@@ -34,7 +34,7 @@ export default function PortfolioPage() {
       <ContentSection title={t("portfolio")}>
         <>
           <Separator className="my-6" />
-          <p className="my-2 text-wrap px-2 text-center">
+          <p className="mb-2 text-wrap px-2 text-center">
             {
               "Hier komt een uitleg over hoe ik projecten doe en wat ik in het algemeen allemaal aan bied."
             }

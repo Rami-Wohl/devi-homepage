@@ -34,8 +34,8 @@ export function StudioCarousel() {
         ))}
       </CarouselContent>
       <div className="flex h-12 w-full flex-row justify-center">
-        <CarouselPrevious className="relative mt-4 hidden items-center justify-center bg-secondary fill-white lg:flex" />
-        <CarouselNext className="relative mt-4 hidden items-center justify-center bg-secondary fill-white lg:flex" />
+        <CarouselPrevious className="relative mt-4 flex items-center justify-center bg-secondary fill-white" />
+        <CarouselNext className="relative mt-4 flex items-center justify-center bg-secondary fill-white" />
       </div>
     </Carousel>
   );

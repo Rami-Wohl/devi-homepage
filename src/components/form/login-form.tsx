@@ -105,7 +105,10 @@ export function LoginForm() {
             {form.formState.errors.root.validation?.message}
           </FormMessage>
         )}
-        <Button type="submit" className="mt-8">
+        <Button
+          type="submit"
+          className="mt-8 hover:bg-white hover:bg-opacity-20"
+        >
           {t("form.submit")}
         </Button>
       </form>

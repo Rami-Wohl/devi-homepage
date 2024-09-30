@@ -1,4 +1,10 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useRef, useState } from "react";
+import PauseTrackIcon from "~/components/icons/pause-track-icon";
+import PlayTrackIcon from "~/components/icons/play-track-icon";
+import { Button } from "~/components/ui/button";
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +15,26 @@ import {
 import { studioGalleryImages } from "~/data/studio-gallery-images";
 
 export function StudioCarousel() {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const isPausedRef = useRef<boolean>(isPaused); // Use ref to store the latest value of isPaused
+
+  useEffect(() => {
+    isPausedRef.current = isPaused; // Sync the ref with the latest isPaused value
+  }, [isPaused]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (buttonRef.current && !isPausedRef.current) {
+        buttonRef.current.click();
+      }
+    }, 10000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
   return (
     <Carousel
       className="relative flex w-full flex-col"
@@ -16,7 +42,7 @@ export function StudioCarousel() {
         align: "start",
         loop: true,
         active: true,
-        duration: 40,
+        duration: 80,
       }}
     >
       <CarouselContent>
@@ -33,9 +59,24 @@ export function StudioCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className="flex h-12 w-full flex-row justify-center">
-        <CarouselPrevious className="relative mt-4 flex items-center justify-center bg-secondary fill-white" />
-        <CarouselNext className="relative mt-4 flex items-center justify-center bg-secondary fill-white" />
+      <div className="relative mt-4 flex h-12 w-full flex-row items-center justify-center gap-4">
+        <CarouselPrevious className="absolute left-[25%] flex h-8 w-8 items-center justify-center bg-secondary fill-white md:left-[35%]" />
+        <Button
+          variant="outline"
+          size={"icon"}
+          className="absolute flex h-8 w-8 items-center justify-center rounded-full bg-secondary fill-white"
+          onClick={() => setIsPaused(!isPaused)}
+        >
+          {isPaused ? (
+            <PlayTrackIcon className="z-20" width={16} />
+          ) : (
+            <PauseTrackIcon className="z-20" width={16} />
+          )}
+        </Button>
+        <CarouselNext
+          ref={buttonRef}
+          className="absolute right-[25%] flex h-8 w-8 items-center justify-center bg-secondary fill-white md:right-[35%]"
+        />
       </div>
     </Carousel>
   );

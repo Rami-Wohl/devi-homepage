@@ -19,6 +19,11 @@
       "submit": "Log in"
     }
   },
+  "studio": {
+    "title": "Studio",
+    "equipment": "Apparatuur",
+    "gallery": "Galerij"
+  },
   "contact": {
     "title": "Neem contact op",
     "form": {

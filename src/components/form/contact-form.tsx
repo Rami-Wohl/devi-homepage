@@ -114,7 +114,10 @@ export function ContactForm() {
             <Spinner />
           </Button>
         ) : (
-          <Button type="submit" className="mt-8">
+          <Button
+            type="submit"
+            className="mt-8 hover:bg-white hover:bg-opacity-20"
+          >
             {t("form.submit")}
           </Button>
         )}

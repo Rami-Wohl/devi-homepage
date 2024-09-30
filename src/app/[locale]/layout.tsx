@@ -24,7 +24,12 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`${GeistSans.variable}`}>
-      <body id="app">
+      <body
+        className="h-screen bg-black bg-cover bg-fixed bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('../../../public/assets/images/knobs.jpeg')",
+        }}
+      >
         <TRPCReactProvider>
           <NextIntlClientProvider messages={messages}>
             <NavComponents loggedIn={!!session} locale={locale} />

@@ -24,7 +24,7 @@ const routes = {
 const NavLink = ({ href, title }: { href: string; title: string }) => {
   return (
     <Link href={href} className="w-full">
-      <div className="text-fontPrimary w-full cursor-pointer py-4 text-center font-sans text-[1.1rem] tracking-[0.3rem] text-opacity-60 no-underline opacity-90 hover:bg-white hover:bg-opacity-90 hover:text-black hover:text-opacity-100">
+      <div className="w-full cursor-pointer py-4 text-center font-sans text-[1.1rem] tracking-[0.3rem] text-fontPrimary text-opacity-60 no-underline opacity-90 hover:bg-white hover:bg-opacity-90 hover:text-black hover:text-opacity-100">
         {title}
       </div>
     </Link>
@@ -58,7 +58,7 @@ const NavComponents = ({
       <div>
         <nav
           ref={mobileMenuRef}
-          className={`bg-secondary fixed left-0 top-0 z-[2] flex h-[calc(100%-55px)] flex-col items-center justify-between border-y border-r border-white border-opacity-10 text-left lg:bg-opacity-20 ${
+          className={`fixed left-0 top-0 z-[2] flex h-[calc(100%-55px)] flex-col items-center justify-between border-y border-r border-white border-opacity-10 bg-secondary text-left lg:bg-opacity-20 ${
             isMobileMenuVisible ? "translate-x-0" : "-translate-x-full"
           } min-h-full w-full pt-[55px] transition-transform duration-500 ease-in-out lg:w-80`}
         >
@@ -78,7 +78,7 @@ const NavComponents = ({
         <div
           className={`absolute z-[2] w-full transition-transform duration-500 ease-in-out`}
         >
-          <div className="bg-primary relative flex h-[55px] flex-wrap items-center justify-center bg-opacity-30 px-4 py-1">
+          <div className="relative flex h-[55px] flex-wrap items-center justify-center bg-primary bg-opacity-30 px-4 py-1">
             <div ref={mobileMenuHandlerRef}>
               <button
                 className="z-10 mr-auto flex h-10 w-10 scale-75 cursor-pointer flex-col justify-around border-none bg-transparent p-0 focus:outline-none"
@@ -89,8 +89,8 @@ const NavComponents = ({
                 <BurgerMenuIcon stroke={"#b1b1b1"} height={40} width={40} />{" "}
               </button>
             </div>
-            <div className="fixed hidden flex-wrap items-center justify-center md:flex">
-              <h2 className="text-fontSecondary flex flex-row gap-4 font-sans text-base font-bold uppercase">
+            <div className="absolute hidden flex-wrap items-center justify-center md:flex">
+              <h2 className="flex flex-row gap-4 font-sans text-base font-bold uppercase text-fontSecondary">
                 <span className="text">D e v i</span>
                 <span className="text">H i s g e n</span>
                 <span className="text">A u d i o</span>

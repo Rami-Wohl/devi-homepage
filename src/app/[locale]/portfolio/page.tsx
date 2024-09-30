@@ -3,17 +3,37 @@
 import { useTranslations } from "next-intl";
 import { PortfolioSectionJazz } from "~/components/sections/portfolio/jazz";
 import { PortfolioSectionMetal } from "~/components/sections/portfolio/metal";
+import { Separator } from "~/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { metalTracks, jazzTracks } from "~/data/tracks";
+
+export const ContentSection = ({
+  children,
+  title,
+}: {
+  children: JSX.Element;
+  title: string;
+}) => {
+  return (
+    <>
+      <div className="relative flex w-full flex-col items-center rounded-md bg-secondary bg-opacity-20 lg:w-1/2">
+        <div className="mt-2 flex w-full flex-col items-center justify-center gap-4 p-4">
+          <h1 className="font-mono text-2xl lg:text-3xl">{title}</h1>
+          {children}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default function PortfolioPage() {
   const t = useTranslations("navigation");
 
   return (
     <div className="container flex flex-col items-center justify-center px-4 py-16">
-      <div className="relative flex flex-col items-center rounded-md bg-secondary bg-opacity-20 lg:w-1/2">
-        <div className="flex w-full flex-col items-center justify-center gap-4 p-4">
-          <h1>{t("portfolio")}</h1>
+      <ContentSection title={t("portfolio")}>
+        <>
+          <Separator className="my-6" />
           <p className="my-2 text-wrap px-2 text-center">
             {
               "Hier komt een uitleg over hoe ik projecten doe en wat ik in het algemeen allemaal aan bied."
@@ -36,8 +56,8 @@ export default function PortfolioPage() {
               <PortfolioSectionJazz tracks={jazzTracks} />
             </TabsContent>
           </Tabs>
-        </div>
-      </div>
+        </>
+      </ContentSection>
     </div>
   );
 }

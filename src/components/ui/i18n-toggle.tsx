@@ -42,11 +42,11 @@ export function I18nToggle({ locale, path }: { locale: Locale; path: string }) {
           {getLabel(locale)}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="bg-primary w-auto border border-white border-opacity-10 bg-opacity-30 px-4 py-3">
+      <PopoverContent className="w-auto border border-white border-opacity-10 bg-secondary bg-opacity-50 px-4 py-3">
         <div className="flex flex-col">
           <Link href={path} locale="en">
             <div>
-              <div className="text-fontSecondary flex flex-row items-center gap-3 p-1 hover:text-white">
+              <div className="flex flex-row items-center gap-3 p-1 text-white text-opacity-70 hover:text-opacity-100">
                 <ReactCountryFlag
                   countryCode="GB"
                   style={{
@@ -59,7 +59,7 @@ export function I18nToggle({ locale, path }: { locale: Locale; path: string }) {
             </div>
           </Link>
           <Link href={path} locale="nl">
-            <div className="text-fontSecondary flex flex-row items-center gap-3 p-1 hover:text-white">
+            <div className="flex flex-row items-center gap-3 p-1 text-white text-opacity-70 hover:text-opacity-100">
               <ReactCountryFlag
                 countryCode="NL"
                 style={{

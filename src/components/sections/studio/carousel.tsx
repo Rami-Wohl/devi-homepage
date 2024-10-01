@@ -68,12 +68,13 @@ export function StudioCarousel() {
           onClick={() => setIsPaused(!isPaused)}
         >
           {isPaused ? (
-            <PlayTrackIcon className="z-20" width={16} />
+            <PlayTrackIcon width={16} />
           ) : (
-            <PauseTrackIcon className="z-20" width={16} />
+            <PauseTrackIcon width={16} />
           )}
         </Button>
         <CarouselNext
+          id="auto-play-button"
           ref={buttonRef}
           className="absolute right-[25%] flex h-8 w-8 items-center justify-center bg-secondary fill-white md:right-[35%]"
         />

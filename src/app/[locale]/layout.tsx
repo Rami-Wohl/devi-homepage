@@ -12,7 +12,16 @@ import { type Locale } from "~/i18n/routing";
 export const metadata: Metadata = {
   title: "Devi Hisgen",
   description: "Devi Hisgen audio engineering homepage",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: {
+    icon: [
+      { rel: "icon", url: "/favicon-light.ico" },
+      {
+        rel: "icon",
+        url: "/favicon-light.ico",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
 };
 
 export default async function RootLayout({

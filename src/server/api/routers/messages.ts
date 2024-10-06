@@ -8,6 +8,7 @@ import {
 import { sendMail } from "~/server/mailer";
 
 const contactFormSchema = z.object({
+  name: z.string(),
   email: z.string().email("Must be valid email"),
   question: z.string(),
 });
@@ -16,13 +17,14 @@ export const messagesRouter = createTRPCRouter({
   createMessage: publicProcedure
     .input(contactFormSchema)
     .mutation(async ({ ctx, input }) => {
-      const { email, question } = input;
+      const { name, email, question } = input;
 
-      sendMail(email, question);
+      sendMail(name, email, question);
 
       try {
         return await ctx.db.message.create({
           data: {
+            name: name,
             email: email,
             question: question,
           },

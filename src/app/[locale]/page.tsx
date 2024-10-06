@@ -16,6 +16,7 @@ export default function Home() {
       <div className="flex flex-col items-center gap-2">
         <div className="border-spacing-2 cursor-pointer rounded-md border-x-[12px] border-y-[8px] border-primary bg-secondary bg-opacity-50 p-3 shadow-2xl">
           <Image
+            id="home-logo"
             className={`opacity-70 transition-transform duration-500 ease-in-out hover:opacity-90 active:opacity-100 ${isMobileMenuVisible ? "rotate-180" : "rotate-0"}`}
             src={image}
             alt="..."

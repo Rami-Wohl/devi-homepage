@@ -27,9 +27,11 @@
   "contact": {
     "title": "Neem contact op",
     "form": {
+      "name": "Naam",
       "email": "Email",
       "question": "Je vraag",
       "submitError": "Kon bericht niet versturen, probeer het later nog eens",
+      "namePlaceholder": "Je naam",
       "emailPlaceholder": "Je email adres",
       "questionPlaceholder": "Stel hier je vraag of geef een korte beschrijving van je project...",
       "submit": "Versturen",

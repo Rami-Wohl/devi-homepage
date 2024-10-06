@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 import type Mail from "nodemailer/lib/mailer";
 import { env } from "~/env";
 
-export async function sendMail(email: string, message: string) {
+export async function sendMail(name: string, email: string, message: string) {
   const transport = nodemailer.createTransport({
     service: "gmail",
     /* 
@@ -25,8 +25,8 @@ export async function sendMail(email: string, message: string) {
   const mailOptions: Mail.Options = {
     from: env.EMAIL_ADDRESS,
     to: env.EMAIL_ADDRESS,
-    subject: `Message from (${email})`,
-    text: `(${email}) sent you: ${message}`,
+    subject: `New message from ${name}`,
+    text: `${name} (${email}) sent you: ${message}`,
   };
 
   const sendMailPromise = () =>

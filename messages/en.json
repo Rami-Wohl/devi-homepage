@@ -27,9 +27,11 @@
   "contact": {
     "title": "Contact me",
     "form": {
+      "name": "Name",
       "email": "Email",
       "question": "Your question",
       "submitError": "Couldn't send message, please try again later.",
+      "namePlaceholder": "Your name",
       "emailPlaceholder": "Your email address",
       "questionPlaceholder": "Please enter your question or briefly describe your project here...",
       "submit": "Send",

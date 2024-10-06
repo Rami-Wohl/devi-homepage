@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useEffect } from "react";
@@ -11,6 +12,7 @@ import { useTranslations } from "next-intl";
 import useScrollPosition from "~/hooks/use-scroll-position";
 import { NavLink } from "./nav-link";
 import { useNavContext } from "~/context/nav-context";
+import logo from "public/assets/images/icon-white.png";
 
 const routes = {
   main: "/",
@@ -51,7 +53,9 @@ const NavComponents = ({ locale }: { locale: Locale }) => {
           isMobileMenuVisible ? "translate-x-0" : "-translate-x-full"
         } min-h-full w-full pt-[55px] transition-transform duration-500 ease-in-out lg:w-80`}
       >
-        <span />
+        <div className="flex h-40 w-full flex-col items-center justify-end opacity-10">
+          <img src={logo.src} alt="..." className="h-10 object-contain" />
+        </div>
         <div className="w-full">
           <NavLink
             href={routes.main}
@@ -84,7 +88,7 @@ const NavComponents = ({ locale }: { locale: Locale }) => {
             closeMenu={() => setMobileMenuVisible(false)}
           />
         </div>
-        <div className="w-full">
+        <div className="flex h-40 w-full flex-col justify-end">
           <NavLink
             href={routes.login}
             title="Login"
@@ -115,6 +119,7 @@ const NavComponents = ({ locale }: { locale: Locale }) => {
               <span className="text">A u d i o</span>
             </h2>
           </div>
+
           <div className="ml-auto flex flex-row items-center">
             <I18nToggle locale={locale} path={path} />
             {status === "authenticated" ? (

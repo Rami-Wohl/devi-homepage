@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const excludedElements = ["auto-play-button"];
+const excludedElements = ["auto-play-button", "home-logo"];
 
 export default function useComponentVisible(initialIsVisible: boolean) {
   const [isComponentVisible, setIsComponentVisible] =

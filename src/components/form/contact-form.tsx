@@ -20,6 +20,7 @@ import { api } from "~/trpc/react";
 import Spinner from "../icons/spinner";
 
 const contactFormSchema = z.object({
+  name: z.string(),
   email: z.string().email("Must be valid email"),
   question: z.string(),
 });
@@ -33,6 +34,7 @@ export function ContactForm() {
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
+      name: "",
       email: "",
       question: "",
     },
@@ -40,11 +42,13 @@ export function ContactForm() {
 
   const handleSubmit = async ({
     email,
+    name,
     question,
   }: z.infer<typeof contactFormSchema>) => {
     try {
       await mutateAsync({
         email,
+        name,
         question,
       });
       setSubmitted(true);
@@ -68,6 +72,23 @@ export function ContactForm() {
         onSubmit={form.handleSubmit(handleSubmit)}
         className="flex w-full flex-col gap-6 bg-transparent"
       >
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("form.name")}</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  className="text-black"
+                  placeholder={t("form.namePlaceholder")}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="email"

@@ -5,6 +5,7 @@ import {
   protectedProcedure,
   publicProcedure,
 } from "~/server/api/trpc";
+import { sendMail } from "~/server/mailer";
 
 const contactFormSchema = z.object({
   email: z.string().email("Must be valid email"),
@@ -16,6 +17,8 @@ export const messagesRouter = createTRPCRouter({
     .input(contactFormSchema)
     .mutation(async ({ ctx, input }) => {
       const { email, question } = input;
+
+      sendMail(email, question);
 
       try {
         return await ctx.db.message.create({

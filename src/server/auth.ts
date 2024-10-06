@@ -9,6 +9,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { verify } from "argon2";
 import { db } from "~/server/db";
 import * as z from "zod";
+import { env } from "~/env";
 
 export const loginSchema = z.object({
   email: z.string().email(),
@@ -43,7 +44,7 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   jwt: {
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: env.NEXTAUTH_SECRET,
     maxAge: 15 * 24 * 30 * 60, // 15 days
   },
   adapter: PrismaAdapter(db) as Adapter,

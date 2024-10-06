@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
-import { signOut } from "next-auth/react";
-import useComponentVisible from "~/hooks/use-component-visible";
+import { signOut, useSession } from "next-auth/react";
 import AccountIcon from "../icons/account-icon";
 import BurgerMenuIcon from "../icons/burgermenu-icon";
 import LogoutIcon from "../icons/logout-icon";
-import { Link, type Locale, usePathname, useRouter } from "~/i18n/routing";
+import { type Locale, usePathname, useRouter } from "~/i18n/routing";
 import { I18nToggle } from "../ui/i18n-toggle";
 import { useTranslations } from "next-intl";
 import useScrollPosition from "~/hooks/use-scroll-position";
+import { NavLink } from "./nav-link";
+import { useNavContext } from "~/context/nav-context";
 
 const routes = {
   main: "/",
@@ -22,45 +23,19 @@ const routes = {
   login: "/login",
 };
 
-const NavLink = ({
-  href,
-  title,
-  closeMenu,
-}: {
-  href: string;
-  title: string;
-  closeMenu: () => void;
-}) => {
-  function handleClick() {
-    closeMenu();
-  }
-
-  return (
-    <Link href={href} className="w-full">
-      <div className="w-full cursor-pointer py-4 text-center font-sans text-[1.1rem] tracking-[0.3rem] text-fontPrimary text-opacity-60 no-underline opacity-90 hover:bg-white hover:bg-opacity-90 hover:text-black hover:text-opacity-100">
-        <button onClick={handleClick}>{title}</button>
-      </div>
-    </Link>
-  );
-};
-
-const NavComponents = ({
-  loggedIn,
-  locale,
-}: {
-  loggedIn: boolean;
-  locale: Locale;
-}) => {
+const NavComponents = ({ locale }: { locale: Locale }) => {
   const {
-    ref: mobileMenuRef,
-    handlerRef: mobileMenuHandlerRef,
-    isComponentVisible: isMobileMenuVisible,
-    setIsComponentVisible: setMobileMenuVisible,
-  } = useComponentVisible(false);
+    mobileMenuRef,
+    mobileMenuHandlerRef,
+    isMobileMenuVisible,
+    setMobileMenuVisible,
+  } = useNavContext();
 
   const router = useRouter();
   const path = usePathname();
   const t = useTranslations("navigation");
+
+  const { status } = useSession();
 
   useEffect(() => {
     setMobileMenuVisible(false);
@@ -142,7 +117,7 @@ const NavComponents = ({
           </div>
           <div className="ml-auto flex flex-row items-center">
             <I18nToggle locale={locale} path={path} />
-            {loggedIn ? (
+            {status === "authenticated" ? (
               <>
                 <button
                   className="flex h-10 w-10 flex-col items-center justify-center rounded-full hover:bg-white hover:bg-opacity-5"

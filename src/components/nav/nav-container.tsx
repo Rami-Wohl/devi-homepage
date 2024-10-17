@@ -53,10 +53,10 @@ const NavComponents = ({ locale }: { locale: Locale }) => {
           isMobileMenuVisible ? "translate-x-0" : "-translate-x-full"
         } min-h-full w-full pt-[55px] transition-transform duration-500 ease-in-out lg:w-80`}
       >
-        <div className="flex h-fit w-full flex-col items-center justify-center pt-8 opacity-10">
+        <div className="flex h-1/4 w-full flex-col items-center justify-center pt-8 opacity-10">
           <img src={logo.src} alt="..." className="h-10 object-contain" />
         </div>
-        <div className="w-full">
+        <div className="flex h-1/2 w-full flex-col justify-center">
           <NavLink
             href={routes.main}
             title={t("home")}
@@ -88,7 +88,7 @@ const NavComponents = ({ locale }: { locale: Locale }) => {
             closeMenu={() => setMobileMenuVisible(false)}
           />
         </div>
-        <div className="flex h-fit w-full flex-col items-center justify-center pb-2">
+        <div className="flex h-1/4 w-full flex-col items-center justify-end">
           <NavLink
             href={routes.login}
             title="Login"

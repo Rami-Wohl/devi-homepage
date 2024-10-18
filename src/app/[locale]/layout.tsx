@@ -10,7 +10,8 @@ import { LayoutWithNav } from "~/components/nav/layout-with-nav";
 
 export const metadata: Metadata = {
   title: "Devi Hisgen",
-  description: "Devi Hisgen audio engineering homepage",
+  description:
+    "Devi Hisgen audio engineering homepage - mixing, mastering, writing and music production consultancy",
   icons: {
     icon: [
       { rel: "icon", url: "/favicon-light.ico" },
@@ -27,7 +28,6 @@ export default async function RootLayout({
   children,
   params: { locale },
 }: Readonly<{ children: React.ReactNode; params: { locale: Locale } }>) {
-  // const session = await getServerAuthSession();
   const messages = await getMessages();
 
   return (

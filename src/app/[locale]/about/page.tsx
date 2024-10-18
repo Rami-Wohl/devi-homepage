@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import { useTranslations } from "next-intl";
 import { ContentSection } from "~/components/styling/content-section";
 import image from "public/assets/images/devi-hoofd.jpeg";
 import { Separator } from "~/components/ui/separator";
+import Image from "next/image";
 
 export default function AboutPage() {
   const t = useTranslations("navigation");
@@ -23,12 +23,12 @@ export default function AboutPage() {
             }
           </p>
           <div className="my-4 rounded-md bg-secondary bg-opacity-50 p-3 shadow-2xl">
-            <img
+            <Image
               className="border-spacing-2 rounded-md border-x-[12px] border-y-[8px] border-primary"
               src={image.src}
               alt="..."
               width={300}
-              height={undefined}
+              height={300}
             />
           </div>
           <h2 className="my-2 font-mono text-lg font-semibold">

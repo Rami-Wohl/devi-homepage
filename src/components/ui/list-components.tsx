@@ -17,7 +17,3 @@ export const List = ({
 export const ListItem = ({ content }: { content: string }) => {
   return <li className="list-inside list-disc">{content}</li>;
 };
-
-export const ListItemUnmarked = ({ content }: { content: string }) => {
-  return <li className="">{content}</li>;
-};

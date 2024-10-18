@@ -9,16 +9,15 @@ import Spinner from "~/components/icons/spinner";
 import { GenericTable } from "./table";
 import { ContentSection } from "~/components/styling/content-section";
 
-export const MailSection = ({
-  data,
-  name,
-}: {
-  data: Message[];
-  name: string | null | undefined;
-}) => {
+export const MailSection = ({ name }: { name: string | null | undefined }) => {
   const [message, setMessage] = useState<Message | null>(null);
-
-  const { mutate } = api.message.toggleReadMessage.useMutation();
+  const { data } = api.message.getMessages.useQuery();
+  const utils = api.useUtils();
+  const { mutate } = api.message.toggleReadMessage.useMutation({
+    onSuccess: () => {
+      utils.message.getMessages.refetch();
+    },
+  });
 
   function handleRowClick(message: Message) {
     setMessage(message);

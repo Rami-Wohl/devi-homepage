@@ -8,6 +8,7 @@ import {
   getPaginationRowModel,
   type SortingState,
   getSortedRowModel,
+  type PaginationState,
 } from "@tanstack/react-table";
 
 import {
@@ -32,16 +33,23 @@ export function GenericTable({ columns, data, onRowClick }: DataTableProps) {
   const [sorting, setSorting] = useState<SortingState>([
     { desc: false, id: "createdAt" },
   ]);
+  const [pagination, setPagination] = useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: 5,
+  });
 
   const table = useReactTable({
     data,
     columns,
+    autoResetPageIndex: false,
     getCoreRowModel: getCoreRowModel(),
+    onPaginationChange: setPagination,
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
     state: {
       sorting,
+      pagination,
     },
   });
 

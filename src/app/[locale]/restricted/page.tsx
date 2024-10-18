@@ -1,28 +1,15 @@
-import { getServerAuthSession } from "~/server/auth";
-import { withAuth } from "../../../components/auth/with-auth";
 import { api } from "~/trpc/server";
+import { withAuth } from "../../../components/auth/with-auth";
+import { MailSection } from "~/components/sections/mail/mails";
+import { getServerSession } from "next-auth";
 
 async function RestrictedPage() {
-  const session = await getServerAuthSession();
-
   const data = await api.message.getMessages();
+  const session = await getServerSession();
 
   return (
-    <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-      <div className="flex flex-col items-center gap-2">
-        <div className="relative flex flex-col items-center justify-center gap-4">
-          <p className="text-center text-2xl text-fontPrimary">
-            {session && <span>Logged in as {session.user?.name}</span>}
-          </p>
-          {data ? (
-            <pre className="max-w-full flex-wrap whitespace-break-spaces text-wrap lg:w-1/2">
-              {JSON.stringify(data, null, 2)}
-            </pre>
-          ) : (
-            <>Loading...</>
-          )}
-        </div>
-      </div>
+    <div className="container flex flex-col items-center justify-center px-4 py-16">
+      <MailSection data={data} name={session?.user.name} />
     </div>
   );
 }

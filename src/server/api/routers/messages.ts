@@ -13,6 +13,11 @@ const contactFormSchema = z.object({
   question: z.string(),
 });
 
+const toggleReadMessageSchema = z.object({
+  id: z.number(),
+  read: z.boolean(),
+});
+
 export const messagesRouter = createTRPCRouter({
   createMessage: publicProcedure
     .input(contactFormSchema)
@@ -27,6 +32,27 @@ export const messagesRouter = createTRPCRouter({
             name: name,
             email: email,
             question: question,
+          },
+        });
+      } catch (e) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: String(e),
+        });
+      }
+    }),
+  toggleReadMessage: protectedProcedure
+    .input(toggleReadMessageSchema)
+    .mutation(async ({ ctx, input }) => {
+      const { id, read } = input;
+
+      try {
+        return await ctx.db.message.update({
+          where: {
+            id,
+          },
+          data: {
+            read: read,
           },
         });
       } catch (e) {

@@ -46,7 +46,7 @@ export function GenericTable({ columns, data, onRowClick }: DataTableProps) {
   });
 
   return (
-    <div className="rounded-md border">
+    <div className="max-w-full rounded-md border">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

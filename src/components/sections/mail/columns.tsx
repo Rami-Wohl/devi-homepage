@@ -6,6 +6,7 @@ import UnreadIcon from "~/components/icons/unread-icon";
 import { formatDateTime } from "~/lib/utils";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import { Button } from "~/components/ui/button";
+import { type ReactNode } from "react";
 
 export const columns: ColumnDef<Message>[] = [
   {
@@ -40,6 +41,9 @@ export const columns: ColumnDef<Message>[] = [
         </Button>
       );
     },
+    cell: ({ cell }) => {
+      return <span className="pl-4">{cell.getValue() as ReactNode}</span>;
+    },
   },
   {
     accessorKey: "email",
@@ -59,6 +63,9 @@ export const columns: ColumnDef<Message>[] = [
           {!column.getIsSorted() && <ArrowUpDown className="ml-2 h-4 w-4" />}
         </Button>
       );
+    },
+    cell: ({ cell }) => {
+      return <span className="pl-4">{cell.getValue() as ReactNode}</span>;
     },
   },
   {
@@ -81,7 +88,11 @@ export const columns: ColumnDef<Message>[] = [
       );
     },
     cell: ({ cell }) => {
-      return formatDateTime(cell.getValue() as Date);
+      return (
+        <span className="text-nowrap pl-4">
+          {formatDateTime(cell.getValue() as Date)}
+        </span>
+      );
     },
   },
 ];

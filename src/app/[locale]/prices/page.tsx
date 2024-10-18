@@ -42,7 +42,12 @@ export default function PricesPage() {
               price={t("prices.ghost-writing")}
             />
           </div>
-          <p className="mb-6 mt-8 pl-2">{t("paragraph2")}</p>
+          <span className="mx-2 text-xs">{t("disclaimer")}</span>
+
+          <h2 className="mb-6 mt-8 pl-2 text-lg font-semibold">
+            {t("header2")}
+          </h2>
+          <p className="mb-6 mt-4 pl-2">{t("paragraph2")}</p>
           <p className="mb-6 mt-4 pl-2">{t("paragraph3")}</p>
         </div>
       </ContentSection>

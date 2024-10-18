@@ -5,30 +5,27 @@ import {
   PopoverTrigger,
 } from "~/components/ui/popover";
 import { Link, type Locale } from "~/i18n/routing";
-import ReactCountryFlag from "react-country-flag";
+import FlagNLIcon from "../icons/flag-nl-icon";
+import FlagUKIcon from "../icons/flag-uk-icon";
 
 function getLabel(locale: Locale) {
   switch (locale) {
     case "nl":
       return (
-        <ReactCountryFlag
-          countryCode="NL"
-          style={{
-            fontSize: "2em",
-            lineHeight: "2em",
-          }}
+        <FlagNLIcon
           aria-label="Nederlands"
+          height={24}
+          width={24}
+          className="rounded-full border-2 border-solid border-white border-opacity-20 bg-white bg-opacity-20"
         />
       );
     case "en":
       return (
-        <ReactCountryFlag
-          countryCode="GB"
-          style={{
-            fontSize: "2em",
-            lineHeight: "2em",
-          }}
+        <FlagUKIcon
           aria-label="English"
+          height={24}
+          width={24}
+          className="rounded-full border-2 border-solid border-white border-opacity-20 bg-white bg-opacity-20"
         />
       );
   }
@@ -37,8 +34,8 @@ function getLabel(locale: Locale) {
 export function I18nToggle({ locale, path }: { locale: Locale; path: string }) {
   return (
     <Popover>
-      <PopoverTrigger className="bg-transparent p-2" asChild>
-        <Button className="rounded-full hover:bg-white hover:bg-opacity-5">
+      <PopoverTrigger className="bg-transparent px-2" asChild>
+        <Button className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-white hover:bg-opacity-5">
           {getLabel(locale)}
         </Button>
       </PopoverTrigger>
@@ -46,13 +43,12 @@ export function I18nToggle({ locale, path }: { locale: Locale; path: string }) {
         <div className="flex flex-col">
           <Link href={path} locale="en">
             <div>
-              <div className="flex flex-row items-center gap-3 p-1 text-white text-opacity-70 hover:text-opacity-100">
-                <ReactCountryFlag
-                  countryCode="GB"
-                  style={{
-                    fontSize: "2em",
-                  }}
+              <div className="mb-2 flex flex-row items-center gap-3 p-1 text-white text-opacity-70 hover:text-opacity-100">
+                <FlagUKIcon
                   aria-label="English"
+                  height={24}
+                  width={24}
+                  className="rounded-full border-2 border-solid border-white border-opacity-10 bg-white bg-opacity-10"
                 />
                 <span>English</span>
               </div>
@@ -60,12 +56,11 @@ export function I18nToggle({ locale, path }: { locale: Locale; path: string }) {
           </Link>
           <Link href={path} locale="nl">
             <div className="flex flex-row items-center gap-3 p-1 text-white text-opacity-70 hover:text-opacity-100">
-              <ReactCountryFlag
-                countryCode="NL"
-                style={{
-                  fontSize: "2em",
-                }}
+              <FlagNLIcon
                 aria-label="Nederlands"
+                height={24}
+                width={24}
+                className="rounded-full border-2 border-solid border-white border-opacity-10 bg-white bg-opacity-10"
               />
               <span>Nederlands</span>
             </div>

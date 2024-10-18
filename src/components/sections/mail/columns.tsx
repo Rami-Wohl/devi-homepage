@@ -89,7 +89,7 @@ export const columns: ColumnDef<Message>[] = [
     },
     cell: ({ cell }) => {
       return (
-        <span className="w-fit overflow-auto text-nowrap pl-4">
+        <span className="w-fit overflow-auto whitespace-nowrap text-nowrap pl-4">
           {formatDateTime(cell.getValue() as Date)}
         </span>
       );

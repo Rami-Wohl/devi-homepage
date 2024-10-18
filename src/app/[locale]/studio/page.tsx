@@ -2,22 +2,12 @@ import { useTranslations } from "next-intl";
 import { Separator } from "~/components/ui/separator";
 import { StudioCarousel } from "~/components/sections/studio/carousel";
 import { ContentSection } from "~/components/styling/content-section";
-
-const SectionTitle = ({ title }: { title: string }) => {
-  return <h1 className="mb-8 w-full text-center text-2xl">{title}</h1>;
-};
-
-const ListTitle = ({ title }: { title: string }) => {
-  return <h2 className="mb-4 text-lg font-bold">{title}</h2>;
-};
-
-const List = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
-  return <ul className="mb-8 flex flex-col gap-1 pl-2">{children}</ul>;
-};
-
-const ListItem = ({ content }: { content: string }) => {
-  return <li className="list-inside list-disc">{content}</li>;
-};
+import {
+  List,
+  ListItem,
+  ListTitle,
+  SectionTitle,
+} from "~/components/ui/list-components";
 
 export default function StudioPage() {
   const t = useTranslations("studio");

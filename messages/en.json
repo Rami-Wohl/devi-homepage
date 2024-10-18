@@ -24,6 +24,26 @@
     "equipment": "Equipment",
     "gallery": "Gallery"
   },
+  "prices": {
+    "title": "Prices",
+    "paragraph1": "These tariffs are guidelines for calculating total project costs:",
+    "paragraph2": "Prices are with 21% VAT included already. Feel free to discuss your project with me, free advice and discounts are always on the table as an option if needed. I understand that every project is unique and therefore the costs can be tailored to your specific needs",
+    "paragraph3": "In case I will be mixing or mastering your album/EP, you can get free advice and guidance for publication - if you desire. Contact me through the contact form on this site to get in touch with me for more information.",
+    "services": {
+      "master-regular": "Regular master:",
+      "master-stem": "Stem master:",
+      "mix": "Mix:",
+      "writing": "Writing and recording separate lines",
+      "ghost-writing": "Ghostwriting:"
+    },
+    "prices": {
+      "master-regular": "50,- per track",
+      "master-stem": "100,- per track",
+      "mix": "150,- per track",
+      "writing": "250,- per track",
+      "ghost-writing": "500,- per track (including recording, mix and master)"
+    }
+  },
   "contact": {
     "title": "Contact me",
     "form": {

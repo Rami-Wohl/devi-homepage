@@ -24,6 +24,26 @@
     "equipment": "Apparatuur",
     "gallery": "Galerij"
   },
+  "prices": {
+    "title": "Prijzen",
+    "paragraph1": "De volgende bedragen zijn richtlijnen voor hoe ik de totale prijzen bereken:",
+    "paragraph2": "Prijzen zijn exclusief 21% BTW Kortingen: bespreek je project gerust, je kan altijd hulp en korting krijgen als je je project bespreekt. Ik snap dat ieder project uniek is en zodoende maken we ook van de prijs maatwerk.",
+    "paragraph3": "Zodra je een album of EP door mij laat mixen of masteren, kan je er (indien gewenst) gratis advies en begeleiding bij krijgen voor de publicatie. Neem contact op via het contact formulier om vrijblijvend informatie in te winnen. ",
+    "services": {
+      "master-regular": "Reguliere master:",
+      "master-stem": "Stem master:",
+      "mix": "Mix:",
+      "writing": "Losse partijen schrijven en uitvoeren:",
+      "ghost-writing": "Ghostwriting:"
+    },
+    "prices": {
+      "master-regular": "50,- per track",
+      "master-stem": "100,- per track",
+      "mix": "150,- per track",
+      "writing": "250,- per track",
+      "ghost-writing": "500,- per track (inclusief uitvoering, mix en master)"
+    }
+  },
   "contact": {
     "title": "Neem contact op",
     "form": {

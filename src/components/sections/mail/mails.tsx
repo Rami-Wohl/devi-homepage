@@ -21,7 +21,9 @@ export const MailSection = ({ name }: { name: string | null | undefined }) => {
 
   function handleRowClick(message: Message) {
     setMessage(message);
-    mutate({ id: message.id, read: true });
+    if (!message.read) {
+      mutate({ id: message.id, read: true });
+    }
   }
 
   return (

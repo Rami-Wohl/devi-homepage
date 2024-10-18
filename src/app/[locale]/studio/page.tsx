@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
-import { ContentSection } from "../portfolio/page";
 import { Separator } from "~/components/ui/separator";
 import { StudioCarousel } from "~/components/sections/studio/carousel";
+import { ContentSection } from "~/components/styling/content-section";
 
 const SectionTitle = ({ title }: { title: string }) => {
   return <h1 className="mb-8 w-full text-center text-2xl">{title}</h1>;

@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ContentSection } from "~/app/[locale]/portfolio/page";
 import { columns } from "./columns";
 import { type Message } from "@prisma/client";
 import { api } from "~/trpc/react";
 import MailModal from "./mail-modal";
 import Spinner from "~/components/icons/spinner";
 import { GenericTable } from "./table";
+import { ContentSection } from "~/components/styling/content-section";
 
 export const MailSection = ({
   data,

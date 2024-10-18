@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import { ContactForm } from "~/components/form/contact-form";
 import { Separator } from "~/components/ui/separator";
 import { HydrateClient } from "~/trpc/server";
-import { ContentSection } from "../portfolio/page";
 import Spinner from "~/components/icons/spinner";
+import { ContentSection } from "~/components/styling/content-section";
 
 export default function ContactPage() {
   const t = useTranslations("contact");

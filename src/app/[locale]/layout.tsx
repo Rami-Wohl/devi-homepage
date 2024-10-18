@@ -3,8 +3,6 @@ import "~/styles/customize-progress-bar.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { TRPCReactProvider } from "~/trpc/react";
-// import NavComponents from "~/components/nav/nav-container";
-// import { getServerAuthSession } from "~/server/auth";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { type Locale } from "~/i18n/routing";

@@ -13,7 +13,7 @@ export const columns: ColumnDef<Message>[] = [
     accessorKey: "read",
     header: "",
     cell: ({ cell }) => {
-      if (cell && cell.getValue() === false) {
+      if (cell.getValue() === false) {
         return <UnreadIcon />;
       }
 

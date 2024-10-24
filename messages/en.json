@@ -1,7 +1,7 @@
 {
   "navigation": {
     "home": "Home",
-    "about": "About",
+    "about": "About me",
     "prices": "Prices",
     "portfolio": "Portfolio",
     "studio": "Studio",
@@ -59,5 +59,20 @@
       "submit": "Send",
       "thanks": "Thanks for your message! I'll contact you as soon as possible."
     }
+  },
+  "about": {
+    "title": "About me",
+    "intro": "Alright, let’s work on your dream! If there are things that you want to know about me, what I do and what I think is useful for you to know before we start, read this page first.",
+    "header1": "Introduction",
+    "paragraph1": "So let’s start with a proper introduction! I am Devi Hisgen and live in Amsterdam. I make music and because I wanted to do everything by myself I also started doing music production. And besides everything music I also work as an addiction expert in psychiatry. I know a thing or two about recovery and one of the key elements is what we call in Dutch “zingeving, which roughly translates to “purpose” or “meaning”. When I felt confident about my producing skills to the point that I accepted commissions I learned that my job was only technical for a mere half. The other part was about guiding a person or a group through obtaining their dreams. And that sounds cheesy, but in practice is so much more profound than I could ever have imagined. ",
+    "paragraph2": "So besides the fact that I want to do this for the rest of my life and become the best in the field I also want to explore this gateway to helping people grow in a metaphysical way. More about this later. Let’s talk music first!",
+    "header2": "Music",
+    "paragraph3": "Let’s be clear: I am a metalhead. I love loud and evil sounding music. But for me it’s not something that translates to my character in a direct manner. I think of myself as a light hearted and happy guy. And besides metal my music taste is very broad. I fancy anything with at least a slight edge. So that can be classical (Russian master era mostly), psytrance and dub, emo rock like Radiohead or anything 80’s. And that is the music that I listen to when I am having some off-time. For music production I like to work on almost anything. I sympathize for projects with passion and I like experimental and refreshing work obviously.",
+    "paragraph4": "I play in a lot of bands and have released many records, but my main band is Cthuluminati, a psychedelic metalband where I play vocals and guitar. I have avant garde black metal solo project called Teitan, I released a synthwave(ish) EP under my own name and I am part of the Dutch black metal collective Zwotte Kring.",
+    "header3": "How I work",
+    "paragraph5": "I’ve worked “in the box” for most of the time. And started using analog gear pretty late. Although I started using DAW controllers because I do appreciate actual “hands-on” workflows. Nowadays however I incorporated a more than decent analog recording chain with all the classics like Neve pre-amps and EQ’s from SSL and Määg. I mix in the box and my master chain is very much hybrid, for I use a series of intelligent plugins (like Gullfoss and Soothe) and some really accurate plugins (like bundles from Sonible and FabFilter) and I topped that with with tube gear for EQing, compression and saturation. For a complete list of my gear click here.",
+    "paragraph6": "Now if you decide to work with me, we get in touch and I make sure to tailor everything. From the basics like prices and the actual assignment to the way we communicate. I like to be open minded and I understand that every person and every project is unique in their own way, so I like to treat it that way.",
+    "paragraph7": "When we come to an agreement, I will help you with all your questions and technical difficulties and of course will guide you with retracting and transferring all the files that I’ll need for the project. We set a deadline for a first draft and a actual deadline. At first I can do one draft per day, but when it comes to details we can go back and forth in the last days to really get to the point where everybody is happy. I will give my honest feedback and opinions, but final decisions are of course always up to you, my dear client. ",
+    "paragraph8": "And above all I want to encourage you to connect with me during the project. I’m always in for a chat and I want to get involved in the project. Let’s really work together and show me your vision. I can promise you that the results will improve when we hype together over your work."
   }
 }

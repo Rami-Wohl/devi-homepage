@@ -5,23 +5,17 @@ import { Separator } from "~/components/ui/separator";
 import Image from "next/image";
 
 export default function AboutPage() {
-  const t = useTranslations("navigation");
+  const t = useTranslations("about");
 
   return (
     <div className="container flex flex-col items-center justify-center px-4 py-16">
-      <ContentSection title={t("about")}>
+      <ContentSection title={t("title")}>
         <>
           <Separator className="my-6" />
-          <p className="mb-2 text-wrap px-2 text-center">
-            {
-              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam illo repellendus voluptatum, ea pariatur, autem odit eveniet porro fugiat ipsa et doloribus deleniti qui in! Perspiciatis voluptatibus blanditiis expedita assumenda. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit excepturi eveniet dolorum. Eius molestias beatae quas incidunt, ut illo neque itaque in delectus similique dolore ipsa ipsam consectetur cupiditate quo! "
-            }
-          </p>
-          <p className="mb-2 text-wrap px-2 text-center">
-            {
-              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam illo repellendus voluptatum, ea pariatur, autem odit eveniet porro fugiat ipsa et doloribus deleniti qui in! Perspiciatis voluptatibus blanditiis expedita assumenda. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit excepturi eveniet dolorum. Eius molestias beatae quas incidunt, ut illo neque itaque in delectus similique dolore ipsa ipsam consectetur cupiditate quo! "
-            }
-          </p>
+          <p className="mt-4 pl-2">{t("intro")}</p>
+          <h2 className="mt-8 pl-2 text-lg font-semibold">{t("header1")}</h2>
+          <p className="mt-2 pl-2">{t("paragraph1")}</p>
+          <p className="mt-4 pl-2">{t("paragraph2")}</p>
           <div className="my-4 rounded-md bg-secondary bg-opacity-50 p-3 shadow-2xl">
             <Image
               className="border-spacing-2 rounded-md border-x-[12px] border-y-[8px] border-primary"
@@ -31,14 +25,14 @@ export default function AboutPage() {
               height={300}
             />
           </div>
-          <h2 className="my-2 font-mono text-lg font-semibold">
-            Lorem, goddamn Ipsum!
-          </h2>
-          <p className="mb-2 text-wrap px-2 text-center">
-            {
-              "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam illo repellendus voluptatum, ea pariatur, autem odit eveniet porro fugiat ipsa et doloribus deleniti qui in! Perspiciatis voluptatibus blanditiis expedita assumenda. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit excepturi eveniet dolorum. Eius molestias beatae quas incidunt, ut illo neque itaque in delectus similique dolore ipsa ipsam consectetur cupiditate quo! "
-            }
-          </p>
+          <h2 className="mt-8 pl-2 text-lg font-semibold">{t("header2")}</h2>
+          <p className="mt-2 pl-2">{t("paragraph3")}</p>
+          <p className="mt-4 pl-2">{t("paragraph4")}</p>
+          <h2 className="mt-8 pl-2 text-lg font-semibold">{t("header3")}</h2>
+          <p className="mt-2 pl-2">{t("paragraph5")}</p>
+          <p className="mt-4 pl-2">{t("paragraph6")}</p>
+          <p className="mt-4 pl-2">{t("paragraph7")}</p>
+          <p className="mb-8 mt-4 pl-2">{t("paragraph8")}</p>
         </>
       </ContentSection>
     </div>

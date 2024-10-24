@@ -1,7 +1,7 @@
 {
   "navigation": {
     "home": "Home",
-    "about": "Over",
+    "about": "Over mij",
     "prices": "Prijzen",
     "portfolio": "Portfolio",
     "studio": "Studio",
@@ -59,5 +59,20 @@
       "submit": "Versturen",
       "thanks": "Bedankt voor je bericht! Ik neem zo spoedig mogelijk contact met je op."
     }
+  },
+  "about": {
+    "title": "Over mij",
+    "intro": "Laten we aan je droom werken! En als er dingen zijn die je over mij wilt weten, wat ik doe en wat ik denk dat nuttig voor je kan zijn om te weten voordat we beginnen, lees dan even deze pagina.",
+    "header1": "Introductie",
+    "paragraph1": "Laten we beginnen met een goede introductie! Ik ben Devi Hisgen en ik woon in Amsterdam. Ik maak muziek en omdat ik alles zelf wilde doen, ben ik ook begonnen met muziekproductie. Naast alles wat met muziek te maken heeft, werk ik ook als verslavingsdeskundige in de psychiatrie. Ik weet het een en ander over herstel en een van de belangrijkste elementen daarvan is wat we “zingeving” noemen, wat ruwweg gaat over zaken als het hebben van een “doel” of  het vinden van “betekenis”. Toen ik me zeker voelde over mijn productieskills en opdrachten begon aan te nemen, leerde ik dat mijn werk slechts voor de helft technisch was. De andere helft ging over het begeleiden van een persoon of een groep in het realiseren van hun dromen. En dat klinkt misschien cliché, maar in de praktijk is het veel diepgaander dan ik ooit had kunnen voorstellen.",
+    "paragraph2": "Dus naast het feit dat ik dit de rest van mijn leven wil doen en de beste wil worden in mijn vak, wil ik ook deze weg verkennen om mensen op een metafysische manier te helpen groeien. Hierover later meer. Laten we het eerst over muziek hebben!",
+    "header2": "Muziek",
+    "paragraph3": "Laten we duidelijk zijn: ik ben een metalhead. Ik hou van luide en duister klinkende muziek. Maar voor mij vertaalt dat zich niet direct naar mijn karakter. Ik zie mezelf als een luchtige en vrolijke kerel. En naast metal is mijn muzieksmaak heel breed. Ik hou van alles met een beetje een rauw randje. Dat kan klassieke muziek zijn (vooral uit de Russische meestertijd), psytrance en dub, emo rock zoals Radiohead, of alles uit de jaren ‘80. En dat is de muziek die ik luister in mijn vrije tijd. Voor muziekproductie werk ik graag aan bijna alles. Ik heb een zwak voor projecten met passie en ik houd van experimenteel en verfrissend werk, dat spreekt natuurlijk voor zich.",
+    "paragraph4": "Ik speel in veel bands en heb veel platen uitgebracht, maar mijn belangrijkste band is Cthuluminati, een psychedelische metalband waar ik zang en gitaar speel. Ik heb een avant-garde black metal soloproject genaamd Teitan, ik bracht een synthwave-achtige EP uit onder mijn eigen naam en ik ben onderdeel van het Nederlandse black metal collectief Zwotte Kring.",
+    "header3": "Hoe ik werk",
+    "paragraph5": "Ik heb het grootste deel van de tijd “in the box” gewerkt. Ik begon pas laat met het gebruik van analoge apparatuur, hoewel ik DAW-controllers ben gaan gebruiken omdat ik de voorkeur geef aan een echte “hands-on” werkwijze. Tegenwoordig heb ik echter een meer dan degelijke analoge opnameketen, met alle klassiekers zoals Neve pre-amps en EQ’s van SSL en Määg. Ik mix in the box en mijn mastering-keten is grotendeels hybride, omdat ik een reeks intelligente plugins gebruik (zoals Gullfoss en Soothe) en enkele zeer nauwkeurige plugins (zoals bundels van Sonible en FabFilter). Dit combineer ik met high-end buizenapparatuur voor EQ, compressie en saturatie. Voor een volledige lijst van mijn apparatuur, klik hier.",
+    "paragraph6": "Als je besluit om met mij samen te werken, nemen we contact op en zorg ik ervoor dat alles op maat wordt afgestemd. Van de basis zoals prijzen en de daadwerkelijke opdracht tot aan de manier waarop we communiceren. Ik sta open voor alles en begrijp dat elke persoon en elk project uniek is, dus behandel ik het ook zo.",
+    "paragraph7": "Wanneer we tot een overeenkomst komen, help ik je met al je vragen en technische uitdagingen, en begeleid ik je uiteraard met het overdragen van alle bestanden die ik voor het project nodig heb. We stellen een deadline vast voor een eerste versie en een definitieve deadline. In eerste instantie kan ik één versie per dag maken, maar als het aankomt op details kunnen we in de laatste dagen heen en weer gaan om echt tot een resultaat te komen waar iedereen blij mee is. Ik geef mijn eerlijke feedback en mening, maar de uiteindelijke beslissingen zijn natuurlijk altijd aan jou, mijn gewaardeerde klant.",
+    "paragraph8": "En bovenal wil ik je aanmoedigen om tijdens het project met mij in contact te blijven. Ik sta altijd open voor een gesprek en wil betrokken zijn bij het project. Laten we echt samenwerken en laat mij jouw visie zien. Ik kan je beloven dat de resultaten zullen verbeteren wanneer we samen enthousiast worden over jouw werk."
   }
 }

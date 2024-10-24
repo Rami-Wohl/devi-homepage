@@ -25,9 +25,9 @@ export default function StudioPage() {
                 <List>
                   <ListItem content={"Neumann TLM103"} />
                   <ListItem content={"Lauten LA320 V2 (tube condensor)"} />
-                  <ListItem content={"Lewit LCT 440"} />
+                  <ListItem content={"Lewit LCT 440 Pure"} />
                 </List>{" "}
-                <ListTitle title={"Pure Preamps"} />{" "}
+                <ListTitle title={"Preamps"} />{" "}
                 <List>
                   <ListItem content={"Neve 1073 LB (500 API)"} />
                   <ListItem content={"Midas 502V2"} />

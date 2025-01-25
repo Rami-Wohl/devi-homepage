@@ -74,5 +74,22 @@
     "paragraph6": "Now if you decide to work with me, we get in touch and I make sure to tailor everything. From the basics like prices and the actual assignment to the way we communicate. I like to be open minded and I understand that every person and every project is unique in their own way, so I like to treat it that way.",
     "paragraph7": "When we come to an agreement, I will help you with all your questions and technical difficulties and of course will guide you with retracting and transferring all the files that I’ll need for the project. We set a deadline for a first draft and a actual deadline. At first I can do one draft per day, but when it comes to details we can go back and forth in the last days to really get to the point where everybody is happy. I will give my honest feedback and opinions, but final decisions are of course always up to you, my dear client. ",
     "paragraph8": "And above all I want to encourage you to connect with me during the project. I’m always in for a chat and I want to get involved in the project. Let’s really work together and show me your vision. I can promise you that the results will improve when we hype together over your work."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "pick": "Pick a genre: ",
+    "description": "I naturally offer my services tailored to your needs. No project is the same, and it's precisely that focus on what each situation requires that makes this work so exciting. I’ve made a small selection of what I’ve done available in this portfolio.",
+    "metal": "Metal",
+    "metalDescription": "Since I play in a extreme metalband myself, I have always attracted other metalbands. I know this genre very well and it is easy for me to find a sound that works well, both with respect to the genre as to what a decent master should sound like. The songs on display below are just a few among many masters I have done. I wanted to show a variety of work within the black metal style I have worked with.",
+    "electronic": "Electronic",
+    "electronicDescription": "The easy part about electronic music is to make the sound balanced and fine. The hard part is to make it organic and authentic. I always aim to ride the edge between a nice tube sound and clear impact. Next to these songs I have also done a lot of hip hop, some trance music and even reggaeton. But because I need the approval of the artist in order to showcase the music here, I chose to present some artist I worked little bit more closer with.",
+    "projects": {
+      "asgrauw": "This was one of the first mastering jobs I did other than my own music. The sound is aggressive and has a ton of low body, yet still remains clear and musical.",
+      "meslamtaea": "A Dutch project that I hold very dear. I am grateful that I was allowed to lay my hands on the mastering and I think it came out great! The vintage feel combined with the modern writing approach is something that makes a record like this really fun to work with.",
+      "schavot": "At this point it was almost obvious that I was going to do the mastering for the upcoming Schavot record. Schavot was into nineties-styled black metal, raw and uncompromising. But for this one Floris wanted to go way more symphonic. This shift in sound was something that we really had to sell to the label, so delivering a great master was essential. ",
+      "vergankelijk": "These guys really gave me the freedom to bend the stems to my own will. So I have mastered this more in a way that worked in my head. I used Amenra as a comparison and think this record turned out great. It was fun to have a load of liberty whilst working on the tracks.",
+      "avanue": "These awesome artists were interesting to work with. They have a really specific sound that they aim for and although it took me a few revisions, it all was for the better. This project proved to me again that having a strong vision always benefits the project.",
+      "devi": "This is something I made for a poledance act. The request was to make something that would really work for an exotic dance act, but also has a really dark intend. It was really fun to experiment with the different drum and synth sounds and the theme almost presented itself after making the initial beat."
+    }
   }
 }

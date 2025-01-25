@@ -13,6 +13,7 @@ export interface Track {
   title: string;
   src: string;
   author: string;
+  key: string;
   thumbnail?: string;
 }
 interface AudioPlayerContextType {
